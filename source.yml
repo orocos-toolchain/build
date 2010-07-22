@@ -1,0 +1,7 @@
+name: orocos.toolchain
+
+version_control:
+    - .*:
+        type: git
+        url: $GIT_ROOT/PACKAGE.git
+
