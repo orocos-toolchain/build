@@ -3,5 +3,5 @@ name: orocos.toolchain
 version_control:
     - .*:
         type: git
-        url: $GIT_ROOT/PACKAGE.git
+        url: $GIT_ROOT-toolchain/$PACKAGE.git
 
