@@ -18,8 +18,15 @@ cmake_package 'rtt' do |pkg|
     target = user_config('rtt_target')
     pkg.define "OROCOS_TARGET", target
 
-    # Used by orogen
+    # Used by the oroGen handler
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
+
+    # Disable building the test suite because it needs a lot of time and memory
+    #
+    # To reenable for your installation, add
+    #   Autobuild::Package['rtt'].define "BUILD_TESTING", "ON"
+    # to autoproj/overrides.rb
+    pkg.define "BUILD_TESTING", "OFF"
 
     pkg.define "ENABLE_CORBA", (user_config('rtt_corba') ? "ON" : "OFF")
     if user_config('rtt_corba')
