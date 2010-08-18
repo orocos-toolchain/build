@@ -67,6 +67,9 @@ graphviz:
     gentoo:
         graphviz
 
+gccxml:
+    debian,ubuntu:
+        gccxml
 
 hoe: gem
 flexmock: gem
