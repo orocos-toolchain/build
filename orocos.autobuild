@@ -33,7 +33,7 @@ cmake_package 'rtt' do |pkg|
         # We depend on the omniorb to be there ...
         pkg.depends_on_os_package 'omniorb'
     end
-    pkg.define "CORBA_IMPLEMENTATION", "OMNIORB"
+    pkg.define "CORBA_IMPLEMENTATION", user_config('rtt_corba_implementation')
 end
 
 # Install the OCL only to get the task browser
