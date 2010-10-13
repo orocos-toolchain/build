@@ -9,26 +9,26 @@ boost:
                 - libboost-filesystem-dev
     ubuntu:
         '9.04':
-                - libboost1.37-dev
-                - libboost-graph1.37-dev
-                - libboost-program-options1.37-dev
-                - libboost-regex1.37-dev
-                - libboost-thread1.37-dev
-                - libboost-filesystem1.37-dev
+                - libboost-dev
+                - libboost-graph-dev
+                - libboost-program-options-dev
+                - libboost-regex-dev
+                - libboost-thread-dev
+                - libboost-filesystem-dev
         '9.10':
-                - libboost1.38-dev
-                - libboost-graph1.38-dev
-                - libboost-program-options1.38-dev
-                - libboost-regex1.38-dev
-                - libboost-thread1.38-dev
-                - libboost-filesystem1.38-dev
+                - libboost-dev
+                - libboost-graph-dev
+                - libboost-program-options-dev
+                - libboost-regex-dev
+                - libboost-thread-dev
+                - libboost-filesystem-dev
         '10.04':
-                - libboost1.40-dev
-                - libboost-graph1.40-dev
-                - libboost-program-options1.40-dev
-                - libboost-regex1.40-dev
-                - libboost-thread1.40-dev
-                - libboost-filesystem1.40-dev
+                - libboost-dev
+                - libboost-graph-dev
+                - libboost-program-options-dev
+                - libboost-regex-dev
+                - libboost-thread-dev
+                - libboost-filesystem-dev
     gentoo: dev-libs/boost
 
 antlr:
