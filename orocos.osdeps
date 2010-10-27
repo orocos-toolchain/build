@@ -8,7 +8,7 @@ boost:
                 - libboost-thread-dev
                 - libboost-filesystem-dev
     ubuntu:
-        '9.04','9.10','10.04','10.10':
+        9.04,9.10,10.04,10.10:
                 - libboost-dev
                 - libboost-graph-dev
                 - libboost-program-options-dev
