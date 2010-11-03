@@ -1,25 +1,39 @@
 configuration_option 'rtt_target', 'string',
     :default => 'gnulinux',
-    :values => %w{gnulinux xenomai},
+    :possible_values => %w{gnulinux xenomai},
     :doc => "the target operating system for Orocos/RTT (gnulinux or xenomai)"
 
-configuration_option 'rtt_corba', 'boolean',
-    :default => 'true',
-    :doc => "build RTT-related software with CORBA support"
+# Upgrade configuration: the old rtt_corba option has to be translated to 'none'
+# for the CORBA implementation if it is false. Do not use Autoproj.user_config
+# here as there might be some cases where autoproj will want to ask the option
+# to the user (e.g. if --reconfigure is called)
+if Autoproj.has_config_key?('rtt_corba') && !Autoproj.option_set['rtt_corba']
+    Autoproj.change_option 'rtt_corba_implementation', 'none'
+end
+Autoproj.reset_option 'rtt_corba'
 
-Autobuild::Orogen.corba = user_config('rtt_corba')
-env_set 'OROCOS_TARGET', user_config('rtt_target')
+configuration_option 'rtt_corba_implementation', 'string',
+    :default => "omniorb",
+    :lowercase => true,
+    :possible_values => %w{none tao omniorb},
+    :doc => ["which CORBA implementation should the RTT use ?",
+             "Answer 'none' to disable CORBA, otherwise pick either tao or omniorb"]
 
 cmake_package 'rtt' do |pkg|
     pkg.always_reconfigure = true
     pkg.doc_dir = File.join('doc', 'api', 'html')
     pkg.with_doc('docapi')
 
+    env_set 'OROCOS_TARGET', user_config('rtt_target')
+
     target = user_config('rtt_target')
     pkg.define "OROCOS_TARGET", target
 
     # Used by the oroGen handler
     pkg.provides "pkgconfig/orocos-rtt-#{target}"
+
+    Autoproj.user_config('rtt_corba_implementation')
+
 
     # Disable building the test suite because it needs a lot of time and memory
     #
@@ -28,12 +42,16 @@ cmake_package 'rtt' do |pkg|
     # to autoproj/overrides.rb
     pkg.define "BUILD_TESTING", "OFF"
 
-    pkg.define "ENABLE_CORBA", (user_config('rtt_corba') ? "ON" : "OFF")
-    if user_config('rtt_corba')
-        # We depend on the omniorb to be there ...
-        pkg.depends_on_os_package 'omniorb'
+    corba = user_config('rtt_corba_implementation')
+    if corba == 'none'
+        Autobuild::Orogen.corba = false
+        pkg.define "ENABLE_CORBA", "OFF"
+    else
+        Autobuild::Orogen.corba = true
+        pkg.define "ENABLE_CORBA", "YES"
+        pkg.define "CORBA_IMPLEMENTATION", corba.upcase
+        pkg.depends_on corba.downcase
     end
-    pkg.define "CORBA_IMPLEMENTATION", user_config('rtt_corba_implementation')
 end
 
 # Install the OCL only to get the task browser

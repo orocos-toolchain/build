@@ -21,21 +21,3 @@ end
 
 Autoproj.user_config('GITORIOUS')
 
-corba_impl_long_doc = [ "Set the CORBA implementation: TAO or OMNIORB" ]
-
-configuration_option 'rtt_corba_implementation', 'string',
-    :default => "OMNIORB",
-    :values => ["TAO"],
-    :doc => corba_impl_long_doc do |value|
-
-    if value == "TAO"
-        Autoproj.change_option("rtt_corba_implementation", "TAO")
-    elsif value == "OMNIORB"
-        Autoproj.change_option("rtt_corba_implementation", "OMNIORB")
-    end
-
-    value
-end
-
-Autoproj.user_config('rtt_corba_implementation')
-
