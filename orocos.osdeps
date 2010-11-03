@@ -1,46 +1,31 @@
 boost:
-    debian: 
-        squeeze/sid:
-                - libboost-dev
-                - libboost-graph-dev
-                - libboost-program-options-dev
-                - libboost-regex-dev
-                - libboost-thread-dev
-                - libboost-filesystem-dev
-    ubuntu:
-        9.04,9.10,10.04,10.10:
-                - libboost-dev
-                - libboost-graph-dev
-                - libboost-program-options-dev
-                - libboost-regex-dev
-                - libboost-thread-dev
-                - libboost-filesystem-dev
+    debian,ubuntu:
+        - libboost-dev
+        - libboost-graph-dev
+        - libboost-program-options-dev
+        - libboost-regex-dev
+        - libboost-thread-dev
+        - libboost-filesystem-dev
     gentoo: dev-libs/boost
 
 antlr:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [antlr, libantlr-dev]
+    debian,ubuntu: [antlr, libantlr-dev]
     gentoo: dev-java/antlr_pic
 omniorb:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [omniidl4, libomniorb4-dev]
+    debian,ubuntu: [omniidl4, libomniorb4-dev]
     gentoo: net-misc/omniORB
 omniorb-nameserver:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [omniorb4-nameserver]
+    debian,ubuntu: [omniorb4-nameserver]
     gentoo: ignore
 
 readline:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [libreadline5-dev]
+    debian,ubuntu: [libreadline5-dev]
     gentoo: sys-libs/readline
 ncurses:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [libncurses5-dev]
+    debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
 doxygen:
-    debian,ubuntu:
-        squeeze/sid,9.04,9.10,10.04,10.10: [doxygen]
+    debian,ubuntu: [doxygen]
     gentoo: app-doc/doxygen
 qtruby:
     debian,ubuntu:
