@@ -68,7 +68,6 @@ ruby_package 'utilrb'
 cmake_package 'utilmm'
 cmake_package 'typelib' do |pkg|
     pkg.define "RUBY_EXECUTABLE", Autoproj.find_in_path(Config::CONFIG['RUBY_INSTALL_NAME'])
-    pkg.parallel_build_level = 1
 end
 
 ruby_package 'orogen' do |pkg|
