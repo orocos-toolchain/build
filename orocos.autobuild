@@ -25,6 +25,7 @@ cmake_package 'rtt' do |pkg|
     pkg.with_doc('docapi')
 
     env_set 'OROCOS_TARGET', user_config('rtt_target')
+    env_add 'CMAKE_PREFIX_PATH', pkg.prefix
 
     target = user_config('rtt_target')
     pkg.define "OROCOS_TARGET", target
