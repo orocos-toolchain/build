@@ -20,6 +20,10 @@ tao:
 readline:
     debian,ubuntu: [libreadline5-dev]
     gentoo: sys-libs/readline
+libreadline:
+    debian,ubuntu: [libreadline5-dev]
+    gentoo: sys-libs/readline
+
 ncurses:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
