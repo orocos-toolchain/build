@@ -18,10 +18,10 @@ tao:
     debian,ubuntu: [libtao-orbsvcs-dev, tao-idl, tao-naming, gperf-ace]
 
 readline:
-    debian,ubuntu: [libreadline5-dev]
+    debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
 libreadline:
-    debian,ubuntu: [libreadline5-dev]
+    debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
 
 ncurses:
