@@ -24,6 +24,9 @@ libreadline:
     debian,ubuntu: [libreadline-dev]
     gentoo: sys-libs/readline
 
+lua-dev:
+    debian,ubuntu: [liblua5.1-0-dev]
+    gentoo: dev-lang/lua
 ncurses:
     debian,ubuntu: [libncurses5-dev]
     gentoo: sys-libs/ncurses
