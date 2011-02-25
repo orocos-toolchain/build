@@ -4,6 +4,6 @@ required_autoproj_version: 1.7.4
 version_control:
     - .*:
         type: git
-        branch: master
+        branch: toolchain-2.3
         url: $GITORIOUS_ROOT/orocos-toolchain/$PACKAGE.git
 
