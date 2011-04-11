@@ -58,3 +58,9 @@ webgen: gem
 coderay: gem
 rice: gem
 
+nokogiri: 
+    gem
+    debian,ubuntu:
+        libxslt1-dev
+    gentoo:
+        dev-libs/libxslt
