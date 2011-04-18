@@ -59,7 +59,7 @@ coderay: gem
 rice: gem
 
 nokogiri: 
-    gem
+    gem: nokogiri
     debian,ubuntu:
         libxslt1-dev
     gentoo:
