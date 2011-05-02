@@ -23,7 +23,7 @@ if ! test -f $PWD/autoproj_bootstrap; then
     $DOWNLOADER http://rock-robotics.org/autoproj_bootstrap
 fi
 
-ruby autoproj_bootstrap $@ git git://gitorious.org/orocos-toolchain/build.git branch=toolchain-2.3
+ruby autoproj_bootstrap $@ git git://gitorious.org/orocos-toolchain/build.git branch=master push_to=git@gitorious.org:orocos-toolchain/build.git
 . $PWD/env.sh
 autoproj update
 autoproj fast-build
