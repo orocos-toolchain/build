@@ -65,7 +65,7 @@ cmake_package 'ocl' do |pkg|
     pkg.define "OROCOS_TARGET", target
 end
 
-autotools_package "log4cpp"
+cmake_package "log4cpp"
 
 ruby_package 'utilrb'
 cmake_package 'utilmm'
