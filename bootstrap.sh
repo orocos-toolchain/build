@@ -1,11 +1,10 @@
 #! /bin/sh
 
 if [ -n "$ROS_ROOT" ]; then
-   for i in $(echo $ROS_PACKAGE_PATH | sed -e's/:/ /g'); do if expr match "`pwd`" "$i"; then path_ok=1; fi; done > /dev/null
-   if [ -z "$path_ok"  ]; then
-       echo "Error: ROS_ROOT detected, but '$(pwd)' is not in your ROS_PACKAGE_PATH"
-       echo " Please run this script in a sub-directory of ROS_PACKAGE_PATH (='$ROS_PACKAGE_PATH')"
-       echo " or unset ROS_ROOT in order not to bootstrap for ROS."
+       echo "Error: ROS_ROOT detected. You should follow the installation instructions of the "
+       echo " http://www.ros.org/wiki/orocos_toolchain_ros "
+       echo " website or unset ROS_ROOT in order not to bootstrap for ROS. Note that there are"
+       echo " also Debian packages for the Orocos Toolchain in the ros package repositories."
        exit 1
    fi
 fi
