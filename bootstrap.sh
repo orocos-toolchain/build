@@ -6,7 +6,6 @@ if [ -n "$ROS_ROOT" ]; then
        echo " website or unset ROS_ROOT in order not to bootstrap for ROS. Note that there are"
        echo " also Debian packages for the Orocos Toolchain in the ros package repositories."
        exit 1
-   fi
 fi
 
 if ! test -f $PWD/autoproj_bootstrap; then
