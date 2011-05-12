@@ -21,8 +21,28 @@ if ! test -f $PWD/autoproj_bootstrap; then
     $DOWNLOADER http://rock-robotics.org/autoproj_bootstrap
 fi
 
+tellfailupdate () {
+    echo "autoproj failed to update your configuration. This means most of the time that there"
+    echo "was an temporary network problem. You can try to manually complete the bootstrap by"
+    echo "typing these three commands::"
+    echo " . env.sh"
+    echo " autoproj update"
+    echo " autoproj fast-build"
+    exit 1
+}
+
+tellfailbuild () {
+    echo "autoproj failed to build your configuration. This means most of the time that there"
+    echo "is a problem with the sources. You can try to manually complete the bootstrap by"
+    echo "typing these two commands:"
+    echo " . env.sh"
+    echo " autoproj build"
+    echo "If that does not work, send an email to the Orocos user's mailing list: orocos-users@mech.kuleuven.be"
+    exit 1
+}
+
 ruby autoproj_bootstrap $@ git git://gitorious.org/orocos-toolchain/build.git branch=toolchain-2.3
 . $PWD/env.sh
-autoproj update
-autoproj fast-build
+autoproj update || tellfailupdate
+autoproj fast-build || tellfailbuild
 
