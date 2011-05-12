@@ -1,13 +1,11 @@
 #! /bin/sh
 
 if [ -n "$ROS_ROOT" ]; then
-   for i in $(echo $ROS_PACKAGE_PATH | sed -e's/:/ /g'); do if expr match "`pwd`" "$i"; then path_ok=1; fi; done > /dev/null
-   if [ -z "$path_ok"  ]; then
-       echo "Error: ROS_ROOT detected, but '$(pwd)' is not in your ROS_PACKAGE_PATH"
-       echo " Please run this script in a sub-directory of ROS_PACKAGE_PATH (='$ROS_PACKAGE_PATH')"
-       echo " or unset ROS_ROOT in order not to bootstrap for ROS."
+       echo "Error: ROS_ROOT detected. You should follow the installation instructions of the "
+       echo " http://www.ros.org/wiki/orocos_toolchain_ros "
+       echo " website or unset ROS_ROOT in order not to bootstrap for ROS. Note that there are"
+       echo " also Debian packages for the Orocos Toolchain in the ros package repositories."
        exit 1
-   fi
 fi
 
 if ! test -f $PWD/autoproj_bootstrap; then
@@ -23,8 +21,28 @@ if ! test -f $PWD/autoproj_bootstrap; then
     $DOWNLOADER http://rock-robotics.org/autoproj_bootstrap
 fi
 
+tellfailupdate () {
+    echo "autoproj failed to update your configuration. This means most of the time that there"
+    echo "was an temporary network problem. You can try to manually complete the bootstrap by"
+    echo "typing these three commands::"
+    echo " . env.sh"
+    echo " autoproj update"
+    echo " autoproj fast-build"
+    exit 1
+}
+
+tellfailbuild () {
+    echo "autoproj failed to build your configuration. This means most of the time that there"
+    echo "is a problem with the sources. You can try to manually complete the bootstrap by"
+    echo "typing these two commands:"
+    echo " . env.sh"
+    echo " autoproj build"
+    echo "If that does not work, send an email to the Orocos user's mailing list: orocos-users@mech.kuleuven.be"
+    exit 1
+}
+
 ruby autoproj_bootstrap $@ git git://gitorious.org/orocos-toolchain/build.git branch=master push_to=git@gitorious.org:orocos-toolchain/build.git
 . $PWD/env.sh
-autoproj update
-autoproj fast-build
+autoproj update || tellfailupdate
+autoproj fast-build || tellfailbuild
 
