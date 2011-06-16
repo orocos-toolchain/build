@@ -10,6 +10,7 @@ layout:
    - utilmm
    - log4cpp
    - rtt
+   - rtt_typelib
    - orogen
    - ocl
 
