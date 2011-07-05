@@ -1,6 +1,6 @@
 package_sets:
    - type: git
-     branch: master
+     branch: toolchain-2.4
      url: $GITORIOUS_ROOT/orocos-toolchain/autoproj.git
      push_to: $GITORIOUS_PUSH_ROOT/orocos-toolchain/autoproj.git
 
