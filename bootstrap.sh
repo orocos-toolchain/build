@@ -41,7 +41,7 @@ tellfailbuild () {
     exit 1
 }
 
-ruby autoproj_bootstrap $@ git git://gitorious.org/orocos-toolchain/build.git branch=toolchain-2.4 push_to=git@gitorious.org:orocos-toolchain/build.git
+ruby autoproj_bootstrap $@ git https://github.com/orocos-toolchain/build.git branch=master push_to=git@github.com:orocos-toolchain/build.git
 . $PWD/env.sh
 autoproj update || tellfailupdate
 autoproj fast-build || tellfailbuild
