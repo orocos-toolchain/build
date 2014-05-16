@@ -38,6 +38,6 @@ ignore(/\.sw?$/)
 # Ignore the numerous backup files
 ignore(/~$/)
 
-require 'autoproj/github'
-Autoproj.github_server_configuration('GITHUB', 'github.com')
+require 'autoproj/gitorious'
+Autoproj.gitorious_server_configuration('GITHUB', 'github.com', :http_url => 'https://github.com')
 

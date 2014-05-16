@@ -1,8 +1,6 @@
 package_sets:
-   - type: git
+   - github: orocos-toolchain/autoproj
      branch: master
-     url: $GITHUB_ROOT/orocos-toolchain/autoproj.git
-     push_to: $GITHUB_PUSH_ROOT/orocos-toolchain/autoproj.git
 
 layout:
    - typelib
