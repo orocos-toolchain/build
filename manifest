@@ -1,6 +1,6 @@
 package_sets:
    - github: orocos-toolchain/autoproj
-     branch: master
+     branch: toolchain-2.8
 
 layout:
    - typelib
