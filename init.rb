@@ -41,3 +41,4 @@ ignore(/~$/)
 require 'autoproj/gitorious'
 Autoproj.gitorious_server_configuration('GITHUB', 'github.com', :http_url => 'https://github.com')
 
+Autoproj.env_set 'TYPELIB_CXX_LOADER', 'castxml'
