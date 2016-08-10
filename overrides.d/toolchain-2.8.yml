@@ -1,0 +1,37 @@
+- utilrb:
+  branch: toolchain-2.8
+- orogen:
+  branch: toolchain-2.8
+- utilrb-ext:
+  branch: toolchain-2.8
+- utilmm:
+  branch: toolchain-2.8
+- rtt:
+  branch: toolchain-2.8
+- log4cpp:
+  branch: toolchain-2.8
+- orocos_toolchain:
+  branch: toolchain-2.8
+- ocl:
+  branch: toolchain-2.8
+- rtt_typelib:
+  branch: toolchain-2.8
+- typelib:
+  branch: toolchain-2.8
+- orocos-toolchain.github.io:
+  branch: toolchain-2.8
+- rttlua_completion:
+  branch: toolchain-2.8
+- stdint_typekit:
+  branch: toolchain-2.8
+- rtt_dot_service:
+  branch: toolchain-2.8
+- rtt_examples:
+  branch: toolchain-2.8
+- rtt_gems:
+  branch: toolchain-2.8
+- rfsm-rtt-example:
+  branch: toolchain-2.8
+- tools-metaruby:
+  branch: stable
+
