@@ -6,3 +6,10 @@
 #   - rtt
 #     branch: test
 #  
+
+
+version_control:
+    - std:
+        github: rock-core/base-orogen-std
+        branch: toolchain-2.8
+

@@ -1,7 +1,8 @@
 - utilrb:
   branch: toolchain-2.8
 - orogen:
-  branch: toolchain-2.8
+  branch: master
+  commit: 9907d3e6a8c92c28be509dcc7535c189b9e814ab
 - utilrb-ext:
   branch: toolchain-2.8
 - utilmm:
@@ -17,7 +18,8 @@
 - rtt_typelib:
   branch: toolchain-2.8
 - typelib:
-  branch: toolchain-2.8
+  branch: master
+  commit: 2bf0ea6442c5c5af0a466f34ba14866fb2d55055
 - orocos-toolchain.github.io:
   branch: toolchain-2.8
 - rttlua_completion:
