@@ -27,7 +27,7 @@ tellfailupdate () {
     echo "typing these three commands::"
     echo " . env.sh"
     echo " autoproj update"
-    echo " autoproj fast-build"
+    echo " autoproj build"
     exit 1
 }
 
@@ -41,8 +41,8 @@ tellfailbuild () {
     exit 1
 }
 
-ruby autoproj_bootstrap $@ git https://github.com/orocos-toolchain/build.git branch=master push_to=git@github.com:orocos-toolchain/build.git
+ruby autoproj_bootstrap $@ git https://github.com/orocos-toolchain/build.git branch=toolchain-2.8-16.04 push_to=git@github.com:orocos-toolchain/build.git
 . $PWD/env.sh
 autoproj update || tellfailupdate
-autoproj fast-build || tellfailbuild
+autoproj build || tellfailbuild
 
