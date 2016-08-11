@@ -1,6 +1,6 @@
 package_sets:
    - github: orocos-toolchain/autoproj
-     branch: master
+     branch: add_pkgconfig_osdep
 
 layout:
    - typelib
